@@ -18,10 +18,22 @@ export default class Home extends Component{
     return (
       <View>
         <Text>Home Screen</Text>
+        <View style={styles.container}>
         { this.state.icons.length > 0 ? this.state.icons.map(obj => {
-          return <HomeIcon icon={obj.icon} keytitle={obj.key} key={obj.key}/>
+          return <HomeIcon style={styles.icon} icon={obj.icon} keytitle={obj.key} key={obj.key}/>
         }): null}
+        </View>
       </View>
     )
+  }
+}
+
+const styles = {
+  container: {
+    flex: 1,
+    flexDirection: 'row'
+  },
+  icon: {
+    width: '33%'
   }
 }
