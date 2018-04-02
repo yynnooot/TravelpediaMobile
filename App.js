@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
 
 import Album from './Album';
-import Camera from './Camera';
+import Cam from './Camera';
 import History from './History';
 import Home from './Home';
 
@@ -16,6 +16,7 @@ export default class App extends React.Component {
             key='home'
             component={Home}
             title='home'
+            hideNavBar={true}
             initial
           />
           <Scene
@@ -24,9 +25,9 @@ export default class App extends React.Component {
             title='album'
           />
           <Scene
-            key='camera'
-            component={Camera}
-            title='camera'
+            key='cam'
+            component={Cam}
+            title='cam'
           />
           <Scene
             key='history'
