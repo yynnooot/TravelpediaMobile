@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
 
-import Album from './Album';
-import Cam from './Camera';
-import History from './History';
-import Home from './Home';
+import Album from './Components/Album';
+import Cam from './Components/Camera';
+import History from './Components/History';
+import Home from './Components/Home';
 
 export default class App extends React.Component {
   render() {

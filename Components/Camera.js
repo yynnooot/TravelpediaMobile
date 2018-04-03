@@ -10,10 +10,27 @@ export default class Cam extends React.Component {
       type: Camera.Constants.Type.back,
     }
   }
+
   async componentWillMount() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({ hasCameraPermission: status === 'granted' });
   }
+
+  snap = async function() {
+    if (this.camera) {
+      let photo = await this.camera.takePictureAsync({base64: true}).then(data=>{
+        console.log(data.base64)
+      })
+      console.log('this is photo', photo)
+      // this.camera.takePictureAsync({base64: true}).then(data => {
+      //   this.setState({loading: true})
+      //   clarifaiCall(data.base64, this.state.restrictions, this.state.allergies, this.props.clarifaiKey)
+      // })
+      //   .catch(e => {
+      //     console.error(e, 'Photo error');;
+      //   })
+    }
+  };
 
    render() {
     const { hasCameraPermission } = this.state;
@@ -24,7 +41,13 @@ export default class Cam extends React.Component {
     } else {
       return (
         <View style={{ flex: 1 }}>
-          <Camera style={{ flex: 1 }} type={this.state.type}>
+          <Camera 
+          style={{ flex: 1 }} 
+          type={this.state.type}
+          ref={ref => {
+            this.camera = ref;
+          }}
+          >
             <View
               style={{
                 flex: 1,
@@ -48,6 +71,17 @@ export default class Cam extends React.Component {
                   style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>
                   {' '}Flip{' '}
                 </Text>
+              </TouchableOpacity>
+             
+              <TouchableOpacity 
+                onPress={this.snap.bind(this)}
+                style={{
+                  flex: 0.9,
+                  alignSelf: 'flex-end',
+                  alignItems: 'center',
+                }}
+                >
+                <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>CAMERA</Text>
               </TouchableOpacity>
             </View>
           </Camera>
