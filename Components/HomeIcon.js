@@ -8,7 +8,7 @@ export default class HomeIcon extends Component{
     super(props);
     this.state = {
       key: this.props.keytitle,
-      icon: this.props.icon
+      icon: this.props.icon,
     }
   }
   render(){

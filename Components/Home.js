@@ -8,9 +8,9 @@ export default class Home extends Component{
     super();
     this.state = {
       icons: [
-        {icon: 'icon1', key: 'album' },
-        {icon: 'icon2', key: 'cam' },
-        {icon: 'icon3', key: 'history' }
+        { icon: 'icon1', key: 'album' },
+        { icon: 'icon2', key: 'cam' },
+        { icon: 'icon3', key: 'history' }
       ]
     }
   }

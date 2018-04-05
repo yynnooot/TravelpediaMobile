@@ -5,13 +5,15 @@ import { Actions } from 'react-native-router-flux';
 export default class Photo extends Component{
   constructor(props){
     super(props);
-    // this.state = {
-    //   imageURI: this.props.imageURI
-    // }
+    this.state = {
+      
+    }
   }
   confirm = () => {
-    Actions['result']({photoURI: this.props.photoURI})
+    Actions['loading']({photoURI: this.props.photoURI})
+    console.log('AFTER CONFIRM')
   }
+  
   render(){
     console.log('photo props:', this.props.photoURI)
     return(

@@ -9,12 +9,16 @@ export default class Cam extends React.Component {
     this.state = {
       hasCameraPermission: null,
       type: Camera.Constants.Type.back,
+      // loading: false,
     }
+    //this.renderCamera = this.renderCamera.bind(this)
   }
 
   async componentWillMount() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    
     this.setState({ hasCameraPermission: status === 'granted' });
+    console.log("should be granted now")
   }
 
   snap = async function() {
@@ -27,34 +31,17 @@ export default class Cam extends React.Component {
     }
   };
 
-  _handleImagePicked = async pickerResult => {
-    let uploadResponse, uploadResult;
-
-    try {
-      this.setState({ uploading: true });
-
-      if (!pickerResult.cancelled) {
-        uploadResponse = await uploadImageAsync(pickerResult.uri);
-        uploadResult = await uploadResponse.json();
-        this.setState({ image: uploadResult.location });
-      }
-    } catch (e) {
-      console.log({ uploadResponse });
-      console.log({ uploadResult });
-      console.log({ e });
-      alert('Upload failed, sorry :(');
-    } finally {
-      this.setState({ uploading: false });
-    }
-  };
-
-   render() {
+  renderCamera(){
     const { hasCameraPermission } = this.state;
-    if (hasCameraPermission === null) {
-      return <View />;
-    } else if (hasCameraPermission === false) {
+    // if (hasCameraPermission === null) {
+    //   console.log("CAMERA IS NULL")
+    //   return <View />;
+    // } else 
+    if (hasCameraPermission === false) {
+      console.log("CAMERA NO PERMISSION")
       return <Text>No access to camera</Text>;
     } else {
+      console.log("CAMERA SHOULD BE RENDERING")
       return (
         <View style={{ flex: 1 }}>
           <Camera 
@@ -102,7 +89,15 @@ export default class Cam extends React.Component {
             </View>
           </Camera>
         </View>
-      );
+      )
+    }
+  }
+
+   render() {
+    if(this.state.hasCameraPermission !== null){
+      return this.renderCamera() 
+    } else {
+      return (<Text>waiting</Text>)
     }
   }
 }

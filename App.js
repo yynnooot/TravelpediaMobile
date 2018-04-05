@@ -3,11 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
 
 import Album from './Components/Album';
-import Cam from './Components/Camera';
+import Cam from './Components/Cam';
 import History from './Components/History';
 import Home from './Components/Home';
 import Photo from './Components/Photo';
 import Result from './Components/Result';
+import Loading from './Components/Loading';
 
 
 export default class App extends React.Component {
@@ -47,6 +48,10 @@ export default class App extends React.Component {
             key='result'
             component={Result}
             title='result'
+          />
+          <Scene
+            key='loading'
+            component={Loading}
           />
         </Scene>
       </Router>
