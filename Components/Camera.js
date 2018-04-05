@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Camera, Permissions } from 'expo';
+import { Actions } from 'react-native-router-flux';
 
 export default class Cam extends React.Component {
   constructor(){
@@ -18,10 +19,11 @@ export default class Cam extends React.Component {
 
   snap = async function() {
     if (this.camera) {
-      let photo = await this.camera.takePictureAsync({base64: true}).then(data=>{
-        console.log(data.base64)
+      await this.camera.takePictureAsync({base64: true}).then(data=>{
+        console.log('datauri from camera:', data.uri)
+        Actions['photo']({photoURI: data.uri, base64: data.base64 });
       })
-      console.log('this is photo', photo)
+      
       // this.camera.takePictureAsync({base64: true}).then(data => {
       //   this.setState({loading: true})
       //   clarifaiCall(data.base64, this.state.restrictions, this.state.allergies, this.props.clarifaiKey)
@@ -29,6 +31,27 @@ export default class Cam extends React.Component {
       //   .catch(e => {
       //     console.error(e, 'Photo error');;
       //   })
+    }
+  };
+
+  _handleImagePicked = async pickerResult => {
+    let uploadResponse, uploadResult;
+
+    try {
+      this.setState({ uploading: true });
+
+      if (!pickerResult.cancelled) {
+        uploadResponse = await uploadImageAsync(pickerResult.uri);
+        uploadResult = await uploadResponse.json();
+        this.setState({ image: uploadResult.location });
+      }
+    } catch (e) {
+      console.log({ uploadResponse });
+      console.log({ uploadResult });
+      console.log({ e });
+      alert('Upload failed, sorry :(');
+    } finally {
+      this.setState({ uploading: false });
     }
   };
 
@@ -42,11 +65,11 @@ export default class Cam extends React.Component {
       return (
         <View style={{ flex: 1 }}>
           <Camera 
-          style={{ flex: 1 }} 
-          type={this.state.type}
-          ref={ref => {
-            this.camera = ref;
-          }}
+            style={{ flex: 1 }} 
+            type={this.state.type}
+            ref={ref => {
+              this.camera = ref;
+            }}
           >
             <View
               style={{

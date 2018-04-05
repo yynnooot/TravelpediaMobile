@@ -6,8 +6,11 @@ import Album from './Components/Album';
 import Cam from './Components/Camera';
 import History from './Components/History';
 import Home from './Components/Home';
+import Photo from './Components/Photo';
+
 
 export default class App extends React.Component {
+  
   render() {
     return (
       <Router>
@@ -33,6 +36,11 @@ export default class App extends React.Component {
             key='history'
             component={History}
             title='history'
+          />
+          <Scene
+            key='photo'
+            component={Photo}
+            title='photo'
           />
         </Scene>
       </Router>

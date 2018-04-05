@@ -31,7 +31,7 @@ export default class Home extends Component{
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
   },
@@ -65,4 +65,4 @@ const styles = {
     // paddingLeft: 30,
     // paddingRight: 30
   }
-}
+})
