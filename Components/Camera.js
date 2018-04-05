@@ -19,18 +19,11 @@ export default class Cam extends React.Component {
 
   snap = async function() {
     if (this.camera) {
-      await this.camera.takePictureAsync({base64: true}).then(data=>{
-        console.log('datauri from camera:', data.uri)
-        Actions['photo']({photoURI: data.uri, base64: data.base64 });
-      })
-      
-      // this.camera.takePictureAsync({base64: true}).then(data => {
-      //   this.setState({loading: true})
-      //   clarifaiCall(data.base64, this.state.restrictions, this.state.allergies, this.props.clarifaiKey)
-      // })
-      //   .catch(e => {
-      //     console.error(e, 'Photo error');;
-      //   })
+      await this.camera.takePictureAsync({base64: true})
+        .then(data=>{
+          console.log('datauri from camera:', data.uri)
+          Actions['photo']({photoURI: data.uri, base64: data.base64 });
+        })
     }
   };
 

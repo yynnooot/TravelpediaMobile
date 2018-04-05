@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
 import {View, Text, Image, StyleSheet, TouchableHighlight} from 'react-native';
-import { Actions } from 'react-native-router-flux';
 
-export default class Photo extends Component{
+export default class Result extends Component{
   constructor(props){
     super(props);
     // this.state = {
     //   imageURI: this.props.imageURI
     // }
   }
-  confirm = () => {
-    Actions['result']({photoURI: this.props.photoURI})
-  }
   render(){
     console.log('photo props:', this.props.photoURI)
     return(
       <View style={styles.container}>
+
         <View style={styles.imageContainer}>
-          <Image source={{ uri: this.props.photoURI }} style={styles.image} />
+         <Image source={{ uri: this.props.photoURI }} style={styles.image}/>
         </View>
-        <View style={{flex: 1}}>
-          <TouchableHighlight style={styles.button} onPress={this.confirm}>
-            <Text>CONFIRM</Text>
-          </TouchableHighlight>
+        <View style={styles.textContainer}>
+          
+            <Text>RESULTS DESCRIPTION</Text>
+          
         </View>
         
       </View>
@@ -37,18 +34,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   imageContainer: {
-    flex: 8,
-    
-    // justifyContent: 'center',
-    // alignItems: 'center'
+    flex: 2,
+    width: '100%',
+    backgroundColor: 'black'
   },
   image: {
-    alignSelf : 'stretch',
+    // alignSelf : 'stretch',
     // overflow : 'visible',
-    width: 400,
-    height: 500
+    width: '100%',
+    height: '100%'
   },
-  button: {
-
+  textContainer: {
+    flex: 3,
   }
 })

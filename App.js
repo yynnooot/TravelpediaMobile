@@ -7,6 +7,7 @@ import Cam from './Components/Camera';
 import History from './Components/History';
 import Home from './Components/Home';
 import Photo from './Components/Photo';
+import Result from './Components/Result';
 
 
 export default class App extends React.Component {
@@ -41,6 +42,11 @@ export default class App extends React.Component {
             key='photo'
             component={Photo}
             title='photo'
+          />
+          <Scene
+            key='result'
+            component={Result}
+            title='result'
           />
         </Scene>
       </Router>

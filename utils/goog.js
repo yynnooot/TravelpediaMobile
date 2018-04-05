@@ -21,8 +21,7 @@ googleApi(base64){
   axios.post(CV_URL, request)
     .then(res => {
       var description=res.data.responses[0].landmarkAnnotations[0].description;
-      this.setState({description})
-     
+      
     })
     .catch(err => {
       console.log('err:', err)
