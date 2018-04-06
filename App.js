@@ -9,6 +9,7 @@ import Home from './Components/Home';
 import Photo from './Components/Photo';
 import Result from './Components/Result';
 import Loading from './Components/Loading';
+import ErrorPage from './Components/ErrorPage';
 
 
 export default class App extends React.Component {
@@ -52,6 +53,10 @@ export default class App extends React.Component {
           <Scene
             key='loading'
             component={Loading}
+          />
+          <Scene
+            key='error'
+            component={ErrorPage}
           />
         </Scene>
       </Router>

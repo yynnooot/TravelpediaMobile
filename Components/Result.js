@@ -18,7 +18,7 @@ export default class Result extends Component{
         </View>
         <View style={styles.textContainer}>
           
-            <Text>RESULTS DESCRIPTION</Text>
+            <Text>{this.props.title}</Text>
           
         </View>
         

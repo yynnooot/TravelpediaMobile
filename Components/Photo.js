@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {View, Text, Image, StyleSheet, TouchableHighlight} from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import axios from 'axios';
+import googleAPI from '../utils/goog';
 
 export default class Photo extends Component{
   constructor(props){
@@ -9,13 +11,15 @@ export default class Photo extends Component{
       
     }
   }
-  confirm = () => {
-    Actions['loading']({photoURI: this.props.photoURI})
-    console.log('AFTER CONFIRM')
-  }
   
+  confirm = () => {
+    Actions['loading']();
+    googleAPI(this.props.photoURI, this.props.base64)
+    console.log('AFTER CONFIRM and google')
+  }
+
   render(){
-    console.log('photo props:', this.props.photoURI)
+    
     return(
       <View style={styles.container}>
         <View style={styles.imageContainer}>
@@ -40,13 +44,9 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 8,
-    
-    // justifyContent: 'center',
-    // alignItems: 'center'
   },
   image: {
     alignSelf : 'stretch',
-    // overflow : 'visible',
     width: 400,
     height: 500
   },
