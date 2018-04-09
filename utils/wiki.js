@@ -17,7 +17,7 @@ export default function wiki(title, uri){
               Actions['result']({ photoURI: uri, title: title, textArr: newTextArray })
             }
           })
-      }else{
+      } else {
         console.log(res.data[1])
       }
     })

@@ -14,16 +14,13 @@ export default class Photo extends Component{
   
   
   confirm = () => {
-    //Actions['loading']();
-    // googleAPI(this.props.photoURI, this.props.base64)
-    // console.log('AFTER CONFIRM and google')
-
-    Actions['result']({ photoURI: this.props.photoURI, title: 'DUMMY DATA', textArr: newTextArray })
+    Actions['loading']();
+    googleAPI(this.props.photoURI, this.props.base64)
   }
 
   render(){
     console.log('base:',this.props.base64.length)
-    return(
+    return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image source={{ uri: this.props.photoURI }} style={styles.image} />

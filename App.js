@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
 
-import Album from './Components/Album';
+//import Album from './Components/Album';
 import Cam from './Components/Cam';
 import History from './Components/History';
 import Home from './Components/Home';
@@ -25,11 +25,11 @@ export default class App extends React.Component {
             hideNavBar={true}
             initial
           />
-          <Scene
+          {/* <Scene
             key='album'
             component={Album}
             title='album'
-          />
+          /> */}
           <Scene
             key='cam'
             component={Cam}
