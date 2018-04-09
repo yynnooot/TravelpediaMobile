@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text, Image, StyleSheet, TouchableHighlight} from 'react-native';
+import {View, ScrollView, Text, Image, StyleSheet, TouchableHighlight} from 'react-native';
 
 export default class Result extends Component{
   constructor(props){
@@ -9,42 +9,50 @@ export default class Result extends Component{
     // }
   }
   render(){
-    console.log('photo props:', this.props.photoURI)
+    //console.log('textArr',this.props.textArr)
     return(
-      <View style={styles.container}>
-
-        <View style={styles.imageContainer}>
+      
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+      {/* <View style={styles.container}>
+        <View style={styles.imageContainer}> */}
          <Image source={{ uri: this.props.photoURI }} style={styles.image}/>
-        </View>
-        <View style={styles.textContainer}>
-          
+        {/* </View>
+        <View style={styles.textContainer}> */}
             <Text>{this.props.title}</Text>
-          
-        </View>
-        
-      </View>
+            {this.props.textArr.map((paragraph, index) => {
+              return <Text style={styles.p} key={index}>{paragraph}</Text>
+            })}
+        {/* </View>
+        </View> */}
+      </ScrollView>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  scrollContainer: {
+    flexGrow: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
-  imageContainer: {
-    flex: 2,
-    width: '100%',
-    backgroundColor: 'black'
-  },
+  // container: {
+  //   flex: 1,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  // },
+  // imageContainer: {
+  //   flex: 2,
+  //   width: '100%',
+  //   backgroundColor: 'black'
+  // },
   image: {
     // alignSelf : 'stretch',
     // overflow : 'visible',
-    width: '100%',
-    height: '100%'
+    width: 300,
+    height: 300
   },
-  textContainer: {
-    flex: 3,
-  }
+  // textContainer: {
+  //   flex: 3,
+  //   padding: 5,
+  // }
 })

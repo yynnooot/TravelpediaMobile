@@ -12,14 +12,17 @@ export default class Photo extends Component{
     }
   }
   
+  
   confirm = () => {
-    Actions['loading']();
-    googleAPI(this.props.photoURI, this.props.base64)
-    console.log('AFTER CONFIRM and google')
+    //Actions['loading']();
+    // googleAPI(this.props.photoURI, this.props.base64)
+    // console.log('AFTER CONFIRM and google')
+
+    Actions['result']({ photoURI: this.props.photoURI, title: 'DUMMY DATA', textArr: newTextArray })
   }
 
   render(){
-    
+    console.log('base:',this.props.base64.length)
     return(
       <View style={styles.container}>
         <View style={styles.imageContainer}>
@@ -35,7 +38,7 @@ export default class Photo extends Component{
     )
   }
 }
-
+const newTextArray = ['hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf', 'alksdhf lkasdhf lkasdflka skjldfh', 'laksdhf lkajshdf lkajhsdlkf ah', 'jsldf', 'akljsdf,', 'lkajhsd', 'lkfhjaslk' , 'dfhla sdlfjkasldfh laksdjhf lasdf lkashdflkashdlk fhashdf lasjhdf lasjdhf laskjhdf lasdhfl askjdhf lashjdfl askjdhf', 'lkasdjhflaskdhfkashdfl asdhlf asdhf asldhf lashdf lkashd', 'flasjhdf', 'lajshdf', 'lajkshdf lajshd']
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -46,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 8,
   },
   image: {
-    alignSelf : 'stretch',
+    alignSelf: 'stretch',
     width: 400,
     height: 500
   },
