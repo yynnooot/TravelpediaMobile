@@ -19,6 +19,7 @@ export default function wiki(title, uri){
           })
       } else {
         console.log(res.data[1])
+        Actions['wikilist']({ list: res.data[1], photoURI: uri })
       }
     })
     .catch(err => console.error(err))

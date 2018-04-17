@@ -9,21 +9,19 @@ export default class Result extends Component{
     // }
   }
   render(){
-    //console.log('textArr',this.props.textArr)
+    console.log('photoURI in RESULT',this.props.photoURI)
     return(
       
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-      {/* <View style={styles.container}>
-        <View style={styles.imageContainer}> */}
-         <Image source={{ uri: this.props.photoURI }} style={styles.image}/>
-        {/* </View>
-        <View style={styles.textContainer}> */}
-            <Text>{this.props.title}</Text>
-            {this.props.textArr.map((paragraph, index) => {
-              return <Text style={styles.p} key={index}>{paragraph}</Text>
-            })}
-        {/* </View>
-        </View> */}
+      
+        <Image source={{ uri: this.props.photoURI }} style={styles.image}/>
+        
+        <Text>{this.props.title}</Text>
+
+        { this.props.textArr.map((paragraph, index) => {
+          return <Text style={styles.p} key={index}>{paragraph}</Text>
+        })}
+        
       </ScrollView>
     )
   }

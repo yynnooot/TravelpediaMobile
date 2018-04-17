@@ -25,10 +25,10 @@ export default function googleAPI(uri, base64){
     .then(res => {
       console.log('response: ',res.data)
       
-      var description=res.data.responses[0].landmarkAnnotations[0].description;
+      var title=res.data.responses[0].landmarkAnnotations[0].description;
 
-      if(description){
-        wiki(description, uri)
+      if(title){
+        wiki(title, uri)
       }
       
       //Actions['result']({ photoURI: uri, title: description })

@@ -34,30 +34,34 @@ export default class Home extends Component{
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
+    backgroundColor: '#568bc1',
+    flex: 1
   },
   header: {
     justifyContent: 'center',
-    marginTop: 200,
-    flex: 3
+    marginTop: 100,
+    flex: 2,
   },
   title: {
     //justifyContent: 'center',
     textAlign: 'center', // <-- the magic
     fontWeight: 'bold',
-    fontSize: 25,
+    fontSize: 45,
+    fontFamily: 'Marker Felt',
+    color: 'white'
   },
   body: {
     marginTop: 20,
     textAlign: 'center', // <-- the magic
     fontSize: 18,
+    color: 'white'
   },
   icons: {
     flexDirection: 'row',
+    flex: 3,
     justifyContent: 'space-between',
     marginLeft: 35,
     marginRight: 35,
-    marginTop: 250,
-    alignItems: 'flex-end'
   },
   icon: {
     width: '33%',

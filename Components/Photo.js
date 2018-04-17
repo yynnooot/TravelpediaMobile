@@ -11,15 +11,13 @@ export default class Photo extends Component{
       
     }
   }
-  
-  
+
   confirm = () => {
     Actions['loading']();
     googleAPI(this.props.photoURI, this.props.base64)
   }
 
   render(){
-    console.log('base:',this.props.base64.length)
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
@@ -51,6 +49,7 @@ const styles = StyleSheet.create({
     height: 500
   },
   button: {
-
+    backgroundColor: '#00cc00',
+    padding: 15
   }
 })

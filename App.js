@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Router, Scene } from 'react-native-router-flux';
+import { Provider } from 'react-redux';
 
-//import Album from './Components/Album';
 import Cam from './Components/Cam';
 import History from './Components/History';
 import Home from './Components/Home';
@@ -10,7 +10,7 @@ import Photo from './Components/Photo';
 import Result from './Components/Result';
 import Loading from './Components/Loading';
 import ErrorPage from './Components/ErrorPage';
-
+import WikiList from './Components/WikiList';
 
 export default class App extends React.Component {
   
@@ -25,11 +25,6 @@ export default class App extends React.Component {
             hideNavBar={true}
             initial
           />
-          {/* <Scene
-            key='album'
-            component={Album}
-            title='album'
-          /> */}
           <Scene
             key='cam'
             component={Cam}
@@ -49,6 +44,10 @@ export default class App extends React.Component {
             key='result'
             component={Result}
             title='result'
+          />
+          <Scene
+            key='wikilist'
+            component={WikiList}
           />
           <Scene
             key='loading'
