@@ -3,8 +3,10 @@ import axios from 'axios';
 
 let searchUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=';
 
-export default function wiki(title, uri){
+export default function wiki(title){
+
   let url = searchUrl + title
+  
   axios.get(url)
     .then(res => {
       if(res.data[1].length === 1){
@@ -14,12 +16,12 @@ export default function wiki(title, uri){
             for(key in resObj){
               const text = resObj[key].extract;
               const newTextArray = text.split('\n')
-              Actions['result']({ photoURI: uri, title: title, textArr: newTextArray })
+              Actions['result']({title: title, textArr: newTextArray })
             }
           })
       } else {
         console.log(res.data[1])
-        Actions['wikilist']({ list: res.data[1], photoURI: uri })
+        Actions['wikilist']({ list: res.data[1]})
       }
     })
     .catch(err => console.error(err))

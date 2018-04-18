@@ -3,15 +3,15 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Camera, Permissions } from 'expo';
 import { Actions } from 'react-native-router-flux';
 
+
+
 export default class Cam extends React.Component {
   constructor(){
     super();
     this.state = {
       hasCameraPermission: null,
       type: Camera.Constants.Type.back,
-      // loading: false,
     }
-    //this.renderCamera = this.renderCamera.bind(this)
   }
 
   async componentWillMount() {
@@ -25,18 +25,17 @@ export default class Cam extends React.Component {
     if (this.camera) {
       await this.camera.takePictureAsync({base64: true})
         .then(data=>{
-          console.log('datauri from camera:', data.uri)
-          Actions['photo']({photoURI: data.uri, base64: data.base64 });
+          // console.log('datauri from camera:', data.uri)
+          this.props.takePictureAsync(data.uri, data.base64);
+          Actions['photo']();
+          // Actions['photo']({photoURI: data.uri, base64: data.base64 });
         })
     }
   };
 
   renderCamera(){
     const { hasCameraPermission } = this.state;
-    // if (hasCameraPermission === null) {
-    //   console.log("CAMERA IS NULL")
-    //   return <View />;
-    // } else 
+    
     if (hasCameraPermission === false) {
       console.log("CAMERA NO PERMISSION")
       return <Text>No access to camera</Text>;

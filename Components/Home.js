@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import HomeIcon from './HomeIcon';
+import AlbumIconContainer from './AlbumIconContainer';
 
 export default class Home extends Component{
   constructor(){
     super();
     this.state = {
       icons: [
-        { icon: 'icon1', key: 'album' },
         { icon: 'icon2', key: 'cam' },
         { icon: 'icon3', key: 'history' }
       ]
@@ -22,9 +22,13 @@ export default class Home extends Component{
           <Text style={styles.body}>Learn While You Travel</Text>
         </View>
         <View style={styles.icons}>
+
+          <AlbumIconContainer/>
+
           { this.state.icons.length > 0 ? this.state.icons.map(obj => {
             return <HomeIcon style={styles.icon} icon={obj.icon} keytitle={obj.key} key={obj.key}/>
         }): null}
+
         </View>
       </View>
     )

@@ -4,8 +4,8 @@ import axios from 'axios';
 import wiki from './wiki';
 import {CV_URL} from 'react-native-dotenv'
 
-export default function googleAPI(uri, base64){
-  
+export default function googleAPI(base64){
+  console.log("**** HITTING GOOGLE API")
   const request = {
     requests: [
       {
@@ -25,13 +25,11 @@ export default function googleAPI(uri, base64){
     .then(res => {
       console.log('response: ',res.data)
       
-      var title=res.data.responses[0].landmarkAnnotations[0].description;
+      var title = res.data.responses[0].landmarkAnnotations[0].description;
 
       if(title){
-        wiki(title, uri)
+        wiki(title)
       }
-      
-      //Actions['result']({ photoURI: uri, title: description })
     })
     .catch(err => {
       console.log('err:', err)

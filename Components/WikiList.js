@@ -18,7 +18,7 @@ export default class WikiList extends Component{
             <TouchableHighlight 
               key={index}
               style={styles.button} 
-              onPress={()=> wiki(landmark, this.props.photoURI)}
+              onPress={()=>wiki(landmark)}
               >
               <Text key={index}>{landmark}</Text>
             </TouchableHighlight>
