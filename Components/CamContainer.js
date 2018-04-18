@@ -14,4 +14,4 @@ const CamContainer = connect(
   mapDispatchToProps
 )(Cam)
 
-export default CamContainer;
+export default CamContainer

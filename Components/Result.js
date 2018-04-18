@@ -9,12 +9,12 @@ export default class Result extends Component{
     // }
   }
   render(){
-    console.log('photoURI in RESULT',this.props.photoURI)
+    
     return(
       
       <ScrollView contentContainerStyle={styles.scrollContainer}>
       
-        <Image source={{ uri: this.props.photoURI }} style={styles.image}/>
+        <Image source={{ uri: this.props.uri }} style={styles.image}/>
         
         <Text>{this.props.title}</Text>
 

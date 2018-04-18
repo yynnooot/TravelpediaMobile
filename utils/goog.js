@@ -3,6 +3,7 @@ import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 import wiki from './wiki';
 import {CV_URL} from 'react-native-dotenv'
+import Promise from 'bluebird';
 
 export default function googleAPI(base64){
   console.log("**** HITTING GOOGLE API")
@@ -23,7 +24,6 @@ export default function googleAPI(base64){
   }
   axios.post(CV_URL, request)
     .then(res => {
-      console.log('response: ',res.data)
       
       var title = res.data.responses[0].landmarkAnnotations[0].description;
 

@@ -8,3 +8,17 @@ export function addImage(uri, base64){
     base64
   }
 }
+
+export function addTitle(title){
+  return {
+    type: TRAVELPEDIA_ACTIONS.ADD_TITLE,
+    title
+  }
+}
+
+export function addSummary(summary){
+  return {
+    type: TRAVELPEDIA_ACTIONS.ADD_SUMMARY,
+    summary
+  }
+}

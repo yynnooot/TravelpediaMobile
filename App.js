@@ -9,7 +9,7 @@ import CamContainer from './Components/CamContainer';
 import History from './Components/History';
 import Home from './Components/Home';
 import PhotoContainer from './Components/PhotoContainer';
-import Result from './Components/Result';
+import ResultContainer from './Components/ResultContainer';
 import Loading from './Components/Loading';
 import ErrorPage from './Components/ErrorPage';
 import WikiList from './Components/WikiList';
@@ -45,7 +45,7 @@ export default class App extends React.Component {
             />
             <Scene
               key='result'
-              component={Result}
+              component={ResultContainer}
               title='result'
             />
             <Scene
