@@ -1,6 +1,10 @@
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 
+import store from '../store';
+import { dispatch } from 'redux';
+import { addSummary } from '../store/actions'
+
 let searchUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=';
 
 export default function wiki(title){
@@ -16,7 +20,10 @@ export default function wiki(title){
             for(key in resObj){
               const text = resObj[key].extract;
               const newTextArray = text.split('\n')
-              Actions['result']({title: title, textArr: newTextArray })
+
+              store.dispatch(addSummary(newTextArray))
+
+              Actions['result']()
             }
           })
       } else {

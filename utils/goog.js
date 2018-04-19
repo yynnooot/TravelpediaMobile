@@ -2,8 +2,11 @@
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 import wiki from './wiki';
-import {CV_URL} from 'react-native-dotenv'
-import Promise from 'bluebird';
+import {CV_URL} from 'react-native-dotenv';
+
+import store from '../store';
+import { dispatch } from 'redux';
+import { addTitle } from '../store/actions'
 
 export default function googleAPI(base64){
   console.log("**** HITTING GOOGLE API")
@@ -28,6 +31,7 @@ export default function googleAPI(base64){
       var title = res.data.responses[0].landmarkAnnotations[0].description;
 
       if(title){
+        store.dispatch(addTitle(title))
         wiki(title)
       }
     })

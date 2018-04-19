@@ -8,8 +8,11 @@ export default class Result extends Component{
     //   imageURI: this.props.imageURI
     // }
   }
+  componentDidMount(){
+    console.log('____:',this.props)
+  }
   render(){
-    
+    //console.log("THIS IS STATE IN RESULT:",this.props)
     return(
       
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -18,7 +21,7 @@ export default class Result extends Component{
         
         <Text>{this.props.title}</Text>
 
-        { this.props.textArr.map((paragraph, index) => {
+        { this.props.summary.map((paragraph, index) => {
           return <Text style={styles.p} key={index}>{paragraph}</Text>
         })}
         

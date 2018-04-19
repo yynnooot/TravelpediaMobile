@@ -4,8 +4,8 @@ import { addTitle } from '../store/actions'
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
-  uri: state.uri,
-  base64: state.base64
+  uri: state.current.uri,
+  base64: state.current.base64
 })
 
 const mapDispatchToProps = (dispatch) => ({
