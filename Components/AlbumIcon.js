@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { ImagePicker } from 'expo';
+import { Ionicons } from '@expo/vector-icons';
 import { Actions } from 'react-native-router-flux';
 
 export default class AlbumIcon extends Component{
@@ -25,10 +26,8 @@ export default class AlbumIcon extends Component{
   render(){
       return (
         <View>
-          {/* <Text onPress={()=> Actions[keyName]()} */}
-          <Text onPress={this.pickImage.bind(this)}
-            >ICON</Text>
-          <Text>Album</Text>
+          <Ionicons name="md-photos" size={32} color="white" onPress={this.pickImage.bind(this)}/>
+          <Text style={{color:'white'}}>Album</Text>
         </View>
       )
   }

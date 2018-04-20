@@ -13,6 +13,7 @@ export default class WikiList extends Component{
   render(){
     return (
       <View>
+        <Text>Please Choose Landmark From List</Text>
         { this.props.list.map((landmark, index) => {
           return (
             <TouchableHighlight 

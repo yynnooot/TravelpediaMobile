@@ -9,8 +9,8 @@ export default class Home extends Component{
     super();
     this.state = {
       icons: [
-        { icon: 'icon2', key: 'cam' },
-        { icon: 'icon3', key: 'history' }
+        { icon: 'md-camera', key: 'cam', text: 'Camera' },
+        { icon: 'ios-list', key: 'history', text: 'History' }
       ]
     }
   }
@@ -26,7 +26,7 @@ export default class Home extends Component{
           <AlbumIconContainer/>
 
           { this.state.icons.length > 0 ? this.state.icons.map(obj => {
-            return <HomeIcon style={styles.icon} icon={obj.icon} keytitle={obj.key} key={obj.key}/>
+            return <HomeIcon style={styles.icon} icon={obj.icon} keytitle={obj.key} key={obj.key} text={obj.text}/>
         }): null}
 
         </View>

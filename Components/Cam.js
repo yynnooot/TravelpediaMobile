@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Camera, Permissions } from 'expo';
 import { Actions } from 'react-native-router-flux';
-
+import { Ionicons } from '@expo/vector-icons';
 
 
 export default class Cam extends React.Component {
@@ -18,17 +18,14 @@ export default class Cam extends React.Component {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     
     this.setState({ hasCameraPermission: status === 'granted' });
-    console.log("should be granted now")
   }
 
   snap = async function() {
     if (this.camera) {
       await this.camera.takePictureAsync({base64: true})
         .then(data=>{
-          // console.log('datauri from camera:', data.uri)
           this.props.takePictureAsync(data.uri, data.base64);
           Actions['photo']();
-          // Actions['photo']({photoURI: data.uri, base64: data.base64 });
         })
     }
   };
@@ -37,10 +34,8 @@ export default class Cam extends React.Component {
     const { hasCameraPermission } = this.state;
     
     if (hasCameraPermission === false) {
-      console.log("CAMERA NO PERMISSION")
       return <Text>No access to camera</Text>;
     } else {
-      console.log("CAMERA SHOULD BE RENDERING")
       return (
         <View style={{ flex: 1 }}>
           <Camera 
@@ -69,10 +64,7 @@ export default class Cam extends React.Component {
                       : Camera.Constants.Type.back,
                   });
                 }}>
-                <Text
-                  style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>
-                  {' '}Flip{' '}
-                </Text>
+                <Ionicons name='ios-reverse-camera-outline' size={25} color='white' />
               </TouchableOpacity>
              
               <TouchableOpacity 
@@ -83,7 +75,7 @@ export default class Cam extends React.Component {
                   alignItems: 'center',
                 }}
                 >
-                <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>CAMERA</Text>
+                <Ionicons name='md-camera' size={32} color='white' />
               </TouchableOpacity>
             </View>
           </Camera>
