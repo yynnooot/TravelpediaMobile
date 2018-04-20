@@ -2,7 +2,7 @@ import initialState from './initialState';
 import TRAVELPEDIA_ACTIONS from './actionConstants';
 
 export default function reducer(state = initialState, action){
-  
+
   switch(action.type){
     
     case TRAVELPEDIA_ACTIONS.ADD_IMAGE:
@@ -17,8 +17,8 @@ export default function reducer(state = initialState, action){
     case TRAVELPEDIA_ACTIONS.ADD_TO_HISTORY:
       return { ...state, history: [ ...state.history, state.current ] }
 
-    case TRAVELPEDIA_ACTIONS.CLEAR_CURRENT:
-      return { ...state, current: { uri: '', base64: '', title: '', summary: [] } }
+    case TRAVELPEDIA_ACTIONS.ADD_TO_CURRENT:
+      return { ...state, current: action.payload }
 
     default:
       return state;

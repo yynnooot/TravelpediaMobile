@@ -28,3 +28,10 @@ export function addToHistory(){
     type: TRAVELPEDIA_ACTIONS.ADD_TO_HISTORY
   }
 }
+
+export function addToCurrent(payload){
+  return {
+    type: TRAVELPEDIA_ACTIONS.ADD_TO_CURRENT,
+    payload
+  }
+}

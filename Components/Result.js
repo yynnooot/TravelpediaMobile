@@ -45,24 +45,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  // container: {
-  //   flex: 1,
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  // },
-  // imageContainer: {
-  //   flex: 2,
-  //   width: '100%',
-  //   backgroundColor: 'black'
-  // },
   image: {
-    // alignSelf : 'stretch',
-    // overflow : 'visible',
     width: 300,
     height: 300
-  },
-  // textContainer: {
-  //   flex: 3,
-  //   padding: 5,
-  // }
+  }
 })

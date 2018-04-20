@@ -1,15 +1,21 @@
 import History from './History';
 import { connect } from 'react-redux';
+import { addToCurrent } from '../store/actions'
 
 const mapStateToProps = (state) => {
-  // console.log('***THIS IS STATE:', state)
   return {
     history: state.history
   }
 }
+const mapDispatchToProps = (dispatch) => ({
+  addToCurrent: function(payload){
+    dispatch(addToCurrent(payload))
+  } 
+})
 
 const HistoryContainer = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(History);
 
 export default HistoryContainer;

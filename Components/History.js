@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight, Image } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 export default class History extends React.Component {
   constructor(props){
@@ -7,6 +8,11 @@ export default class History extends React.Component {
     this.state = {
       
     }
+    this.click = this.click.bind(this)
+  }
+  click = function(landmark){
+    this.props.addToCurrent(landmark)
+    Actions['result']();
   }
   render() {
     if(this.props.history.length > 0){
@@ -14,7 +20,7 @@ export default class History extends React.Component {
         <View>
           { this.props.history.map((landmark, index) => {
               return (
-                <TouchableHighlight key={index}>
+                <TouchableHighlight key={index} onPress={()=>this.click(landmark)}>
                   <View style={styles.itemContainer} key={index}>
                     {/* <Image source={{ uri: landmark.uri }} style={styles.image} /> */}
                     <Text key={index}>IMAGE HERE</Text>
@@ -29,7 +35,7 @@ export default class History extends React.Component {
       return (
         <View style={styles.container}>
           <Text>There is no history.</Text>
-          <Text>Return to home to snap and learn!</Text>
+          <Text>Return to home to take photos of landmarks!</Text>
         </View>
       )
     }
