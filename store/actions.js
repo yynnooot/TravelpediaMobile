@@ -22,3 +22,9 @@ export function addSummary(summary){
     summary
   }
 }
+
+export function addToHistory(){
+  return {
+    type: TRAVELPEDIA_ACTIONS.ADD_TO_HISTORY
+  }
+}

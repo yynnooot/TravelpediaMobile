@@ -32,7 +32,7 @@ export default class Photo extends Component{
     )
   }
 }
-// const newTextArray = ['hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','hlasjhdflaksjhd','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf','flkahsdflaslkjdf', 'alksdhf lkasdhf lkasdflka skjldfh', 'laksdhf lkajshdf lkajhsdlkf ah', 'jsldf', 'akljsdf,', 'lkajhsd', 'lkfhjaslk' , 'dfhla sdlfjkasldfh laksdjhf lasdf lkashdflkashdlk fhashdf lasjhdf lasjdhf laskjhdf lasdhfl askjdhf lashjdfl askjdhf', 'lkasdjhflaskdhfkashdfl asdhlf asdhf asldhf lashdf lkashd', 'flasjhdf', 'lajshdf', 'lajkshdf lajshd']
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

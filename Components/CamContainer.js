@@ -3,7 +3,7 @@ import { addImage } from '../store/actions';
 import { connect } from 'react-redux';
 
 
-export const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
   takePictureAsync: (photoURI, base64) => {
     dispatch(addImage(photoURI, base64))
   }

@@ -2,19 +2,28 @@ import initialState from './initialState';
 import TRAVELPEDIA_ACTIONS from './actionConstants';
 
 export default function reducer(state = initialState, action){
+  
   switch(action.type){
     
     case TRAVELPEDIA_ACTIONS.ADD_IMAGE:
-      //return Object.assign(...state, { uri: action.uri, base64: action.base64 })
       return { ...state, current: {...state.current, uri: action.uri, base64: action.base64 }}
+  
     case TRAVELPEDIA_ACTIONS.ADD_TITLE:
-      //return Object.assign(...state, { title: action.title })
-      // return { ...state, current: { title: action.title } }
       return { ...state, current: {...state.current, title: action.title}}
+  
     case TRAVELPEDIA_ACTIONS.ADD_SUMMARY:
       return { ...state, current: {...state.current, summary: action.summary } }
     
+    case TRAVELPEDIA_ACTIONS.ADD_TO_HISTORY:
+      return { ...state, history: [ ...state.history, state.current ] }
+
+    case TRAVELPEDIA_ACTIONS.CLEAR_CURRENT:
+      return { ...state, current: { uri: '', base64: '', title: '', summary: [] } }
+
     default:
       return state;
   }
 }
+
+//ADD_TO_HISTORY
+//CLEAR_CURRENT => new state with empty strings

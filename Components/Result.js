@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Actions } from 'react-native-router-flux';
 import {View, ScrollView, Text, Image, StyleSheet, TouchableHighlight} from 'react-native';
 
 export default class Result extends Component{
@@ -9,12 +10,12 @@ export default class Result extends Component{
     // }
   }
   componentDidMount(){
-    console.log('____:',this.props)
+    this.props.addToHistory();
   }
+
   render(){
-    //console.log("THIS IS STATE IN RESULT:",this.props)
-    return(
-      
+    if(this.props.uri){
+      return (
       <ScrollView contentContainerStyle={styles.scrollContainer}>
       
         <Image source={{ uri: this.props.uri }} style={styles.image}/>
@@ -25,8 +26,16 @@ export default class Result extends Component{
           return <Text style={styles.p} key={index}>{paragraph}</Text>
         })}
         
+        <TouchableHighlight onPress={()=> Actions['home']() }>
+          <Text>Return to Home</Text>
+        </TouchableHighlight>
       </ScrollView>
-    )
+      )
+    } else {
+      return (
+        <Text>Hello</Text>
+      )
+    }
   }
 }
 

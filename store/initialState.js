@@ -8,13 +8,5 @@ const intialState = {
   history: []
 };
 
-// const intialState = {
-  
-//   uri: '',
-//   base64: '',
-//   title: '',
-//   summary: [],
-//   history: []
-// };
 
 export default intialState;

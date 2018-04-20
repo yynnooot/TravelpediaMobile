@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import CamContainer from './Components/CamContainer';
-import History from './Components/History';
+import HistoryContainer from './Components/HistoryContainer';
 import Home from './Components/Home';
 import PhotoContainer from './Components/PhotoContainer';
 import ResultContainer from './Components/ResultContainer';
@@ -35,7 +35,7 @@ export default class App extends React.Component {
             />
             <Scene
               key='history'
-              component={History}
+              component={HistoryContainer}
               title='history'
             />
             <Scene
