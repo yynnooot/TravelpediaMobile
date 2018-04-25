@@ -9,7 +9,6 @@ import { dispatch } from 'redux';
 import { addTitle } from '../store/actions'
 
 export default function googleAPI(base64){
-  console.log("**** HITTING GOOGLE API")
   const request = {
     requests: [
       {

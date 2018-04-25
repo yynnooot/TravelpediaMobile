@@ -24,8 +24,8 @@ export default class Cam extends React.Component {
     if (this.camera) {
       await this.camera.takePictureAsync({base64: true})
         .then(data=>{
-          this.props.takePictureAsync(data.uri, data.base64);
-          Actions['photo']();
+          this.props.takePictureAsync(data.uri);
+          Actions['photo']({base64: data.base64});
         })
     }
   };

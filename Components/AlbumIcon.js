@@ -18,8 +18,8 @@ export default class AlbumIcon extends Component{
       base64: true,
     });
     if (!result.cancelled) {
-      this.props.selectPictureAsync(result.uri, result.base64)
-      Actions['photo']()
+      this.props.selectPictureAsync(result.uri)
+      Actions['photo']({base64: result.base64})
     }
   };
   

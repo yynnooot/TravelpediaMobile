@@ -5,11 +5,13 @@ import {View, ScrollView, Text, Image, StyleSheet, TouchableHighlight} from 'rea
 export default class Result extends Component{
   constructor(props){
     super(props);
-    // this.state = {
-    //   imageURI: this.props.imageURI
-    // }
   }
   componentDidMount(){
+    for(landmark of this.props.history){
+      if(landmark.title === this.props.title){
+        return
+      }
+    } 
     this.props.addToHistory();
   }
 

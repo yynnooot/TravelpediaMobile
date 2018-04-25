@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { addToHistory } from '../store/actions';
 
 const mapStateToProps = (state) => {
-  // console.log('***THIS IS STATE:', state)
   return {
     uri: state.current.uri,
     title: state.current.title,
-    summary: state.current.summary
+    summary: state.current.summary,
+    history: state.history,
+    current: state.current
   }
 }
 const mapDispatchToProps = (dispatch) => ({

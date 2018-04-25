@@ -18,7 +18,7 @@ export default class HomeIcon extends Component{
     const text = this.props.text
     
       return (
-        <View>
+        <View style={styles.container}>
           <Ionicons name={icon} size={32} color='white' onPress={() => Actions[key]()} />
           <Text style={{color: 'white'}}>{text}</Text>
         </View>
@@ -26,3 +26,9 @@ export default class HomeIcon extends Component{
     
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center'
+  }
+})

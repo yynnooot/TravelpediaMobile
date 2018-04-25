@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 
 const mapDispatchToProps = (dispatch) => ({
-  takePictureAsync: (photoURI, base64) => {
-    dispatch(addImage(photoURI, base64))
+  takePictureAsync: (photoURI) => {
+    dispatch(addImage(photoURI))
   }
 })
 

@@ -8,7 +8,7 @@ export default class History extends React.Component {
     this.state = {
       
     }
-    this.click = this.click.bind(this)
+    // this.click = this.click.bind(this)
   }
   click = function(landmark){
     this.props.addToCurrent(landmark)
@@ -24,7 +24,7 @@ export default class History extends React.Component {
                   <View style={styles.itemContainer} key={index}>
                     {/* <Image source={{ uri: landmark.uri }} style={styles.image} /> */}
                     <Text key={index}>IMAGE HERE</Text>
-                    <Text key={{index} + '_title'}>{landmark.title}</Text>
+                    <Text key={index + '_title'}>{landmark.title}</Text>
                   </View>
                 </TouchableHighlight>)  
             })

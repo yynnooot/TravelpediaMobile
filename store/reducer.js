@@ -6,7 +6,7 @@ export default function reducer(state = initialState, action){
   switch(action.type){
     
     case TRAVELPEDIA_ACTIONS.ADD_IMAGE:
-      return { ...state, current: {...state.current, uri: action.uri, base64: action.base64 }}
+      return { ...state, current: {...state.current, uri: action.uri}}
   
     case TRAVELPEDIA_ACTIONS.ADD_TITLE:
       return { ...state, current: {...state.current, title: action.title}}
