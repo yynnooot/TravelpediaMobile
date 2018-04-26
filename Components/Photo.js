@@ -24,7 +24,7 @@ export default class Photo extends Component{
         </View>
         <View style={{flex: 1}}>
           <TouchableHighlight style={styles.button} onPress={this.confirm}>
-            <Text>CONFIRM</Text>
+            <Text style={styles.text}>CONFIRM</Text>
           </TouchableHighlight>
         </View>
         
@@ -47,8 +47,12 @@ const styles = StyleSheet.create({
     width: 400,
     height: 500
   },
+  text: {
+    color: 'white'
+  },
   button: {
-    backgroundColor: '#00cc00',
-    padding: 15
+    backgroundColor: '#568bc1',
+    padding: 15,
+    borderRadius: 5
   }
 })

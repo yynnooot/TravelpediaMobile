@@ -19,8 +19,8 @@ export default class HomeIcon extends Component{
     
       return (
         <View style={styles.container}>
-          <Ionicons name={icon} size={32} color='white' onPress={() => Actions[key]()} />
-          <Text style={{color: 'white'}}>{text}</Text>
+          <Ionicons style={styles.icon} name={icon} size={32} color='white' onPress={() => Actions[key]()} />
+          <Text style={styles.text}>{text}</Text>
         </View>
       )
     
@@ -30,5 +30,16 @@ export default class HomeIcon extends Component{
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center'
+  },
+  icon: {
+    color: '#FFFFA1'
+  },
+  text: {
+    color: 'white',
+    shadowOpacity: .7,
+    shadowOffset: {width: 0, height: 33},
+    shadowRadius: 8,
+    shadowColor: '#1A1C51',
+    fontSize: 18
   }
 })

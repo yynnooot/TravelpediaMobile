@@ -22,9 +22,8 @@ export default class History extends React.Component {
               return (
                 <TouchableHighlight key={index} onPress={()=>this.click(landmark)}>
                   <View style={styles.itemContainer} key={index}>
-                    {/* <Image source={{ uri: landmark.uri }} style={styles.image} /> */}
-                    <Text key={index}>IMAGE HERE</Text>
-                    <Text key={index + '_title'}>{landmark.title}</Text>
+                    <Image source={{uri: landmark.uri}} key={index} style={styles.image}/>
+                    <Text style={styles.text} key={index + '_title'}>{landmark.title}</Text>
                   </View>
                 </TouchableHighlight>)  
             })
@@ -52,12 +51,20 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
     borderStyle: 'solid',
     borderWidth: 1,
     borderRadius: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#568bc1',
   },
   image: {
-
+    height: 70,
+    width: 80,
+    padding: 10
   },
+  text: {
+    fontSize: 18,
+    color: '#ffffff',
+    paddingLeft: 20
+  }
 });

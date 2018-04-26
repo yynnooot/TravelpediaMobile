@@ -19,16 +19,33 @@ export default class AlbumIcon extends Component{
     });
     if (!result.cancelled) {
       this.props.selectPictureAsync(result.uri)
+      console.log(result.uri)
       Actions['photo']({base64: result.base64})
     }
   };
   
   render(){
       return (
-        <View>
-          <Ionicons name="md-photos" size={32} color="white" onPress={this.pickImage.bind(this)}/>
-          <Text style={{color:'white'}}>Album</Text>
+        <View style={styles.container}>
+          <Ionicons style={styles.icon} name="md-photos" size={32} color="white" onPress={this.pickImage.bind(this)}/>
+          <Text style={styles.text}>My Album</Text>
         </View>
       )
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center'
+  },
+  icon: {
+    color: '#FFFFA1'
+  },
+  text: {
+    color: 'white',
+    shadowOpacity: .7,
+    shadowOffset: {width: 0, height: 33},
+    shadowRadius: 8,
+    shadowColor: '#1A1C51',
+    fontSize: 18
+  }
+})

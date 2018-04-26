@@ -22,14 +22,14 @@ export default class Result extends Component{
       
         <Image source={{ uri: this.props.uri }} style={styles.image}/>
         
-        <Text>{this.props.title}</Text>
+        <Text style={styles.title}>{this.props.title}</Text>
 
         { this.props.summary.map((paragraph, index) => {
           return <Text style={styles.p} key={index}>{paragraph}</Text>
         })}
         
-        <TouchableHighlight onPress={()=> Actions['home']() }>
-          <Text>Return to Home</Text>
+        <TouchableHighlight  onPress={()=> Actions['home']() }>
+          <Text style={styles.returnHome}>Return to Home</Text>
         </TouchableHighlight>
       </ScrollView>
       )
@@ -47,8 +47,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingTop: 10
+  },
   image: {
     width: 300,
     height: 300
+  },
+  p: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 10,
+    fontSize: 18
+  },
+  returnHome: {
+    paddingTop: 10,
+    color: '#568bc1',
+    paddingBottom: 10
   }
 })

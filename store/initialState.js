@@ -1,7 +1,6 @@
 const intialState = {
   current: {
     uri: '',
-    base64: '',
     title: '',
     summary: []
   },

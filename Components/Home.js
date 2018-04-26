@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-
+import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
+import { Font, AppLoading } from "expo";
 import HomeIcon from './HomeIcon';
 import AlbumIconContainer from './AlbumIconContainer';
 
@@ -11,10 +11,27 @@ export default class Home extends Component{
       icons: [
         { icon: 'md-camera', key: 'cam', text: 'Camera' },
         { icon: 'ios-list', key: 'history', text: 'History' }
-      ]
+      ],
+      loading: true
     }
   }
+  componentDidMount(){
+    this.loadFont();
+  }
+
+  async loadFont(){
+    await Font.loadAsync({
+      'lobster': require('../assets/fonts/Lobster-Regular.ttf')
+    });
+    this.setState({loading: false})
+  }
+  
   render(){
+    if(this.state.loading){
+      return (
+        <AppLoading />
+      )
+    }
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -44,15 +61,15 @@ const styles = StyleSheet.create({
   header: {
     justifyContent: 'center',
     marginTop: 100,
-    flex: 2,
+    flex: 3,
   },
   title: {
-    //justifyContent: 'center',
+    fontFamily: 'lobster',
     textAlign: 'center', // <-- the magic
     fontWeight: 'bold',
-    fontSize: 45,
-    fontFamily: 'Marker Felt',
-    color: 'white'
+    fontSize: 55,
+    color: '#FFFFA1',
+    
   },
   body: {
     marginTop: 20,
@@ -62,10 +79,10 @@ const styles = StyleSheet.create({
   },
   icons: {
     flexDirection: 'row',
-    flex: 3,
+    flex: 2,
     justifyContent: 'space-between',
-    marginLeft: 35,
-    marginRight: 35,
+    marginLeft: 45,
+    marginRight: 45,
   },
   icon: {
     width: '33%',
