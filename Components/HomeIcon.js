@@ -19,7 +19,9 @@ export default class HomeIcon extends Component{
     
       return (
         <View style={styles.container}>
-          <Ionicons style={styles.icon} name={icon} size={32} color='white' onPress={() => Actions[key]()} />
+          <View style={styles.circle}>
+            <Ionicons style={styles.icon} name={icon} size={32} color='white' onPress={() => Actions[key]()} />
+          </View>
           <Text style={styles.text}>{text}</Text>
         </View>
       )
@@ -41,5 +43,13 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     shadowColor: '#1A1C51',
     fontSize: 18
+  },
+  circle: {
+    borderRadius: 40,
+    width: 50,
+    height: 50,
+    backgroundColor: 'rgba(69,85,117,0.7)',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 })

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
-import { Font, AppLoading } from "expo";
+import { View, Text, StyleSheet, ActivityIndicator, ImageBackground } from 'react-native';
+import { Font, AppLoading, LinearGradient } from "expo";
+// import LinearGradient from 'react-native-linear-gradient';
+
 import HomeIcon from './HomeIcon';
 import AlbumIconContainer from './AlbumIconContainer';
 
@@ -10,7 +12,7 @@ export default class Home extends Component{
     this.state = {
       icons: [
         { icon: 'md-camera', key: 'cam', text: 'Camera' },
-        { icon: 'ios-list', key: 'history', text: 'History' }
+        { icon: 'ios-list-box', key: 'history', text: 'History' }
       ],
       loading: true
     }
@@ -34,19 +36,25 @@ export default class Home extends Component{
     }
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>Travelpedia</Text>
-          <Text style={styles.body}>Learn While You Travel</Text>
-        </View>
-        <View style={styles.icons}>
+        <ImageBackground source={require('../assets/images/pisa.jpeg')} style={StyleSheet.absoluteFillObject}>
+          <LinearGradient
+            colors={['rgba(79, 206, 249,0.5)', 'rgba(114, 110, 248,0.5)', 'rgba(77,6,131,0.8)']} 
+            style={styles.gradientContainer}
+          >
+            <View style={styles.header}>
+              <Text style={styles.title}>Travelpedia</Text>
+              <Text style={styles.body}>Learn While You Travel</Text>
+            </View>
+            <View style={styles.icons}>
 
-          <AlbumIconContainer/>
+              <AlbumIconContainer/>
 
-          { this.state.icons.length > 0 ? this.state.icons.map(obj => {
-            return <HomeIcon style={styles.icon} icon={obj.icon} keytitle={obj.key} key={obj.key} text={obj.text}/>
-        }): null}
-
-        </View>
+              { this.state.icons.length > 0 ? this.state.icons.map(obj => {
+                return <HomeIcon style={styles.icon} icon={obj.icon} keytitle={obj.key} key={obj.key} text={obj.text}/>
+            }): null}
+            </View>
+          </LinearGradient>
+        </ImageBackground>
       </View>
     )
   }
@@ -55,8 +63,21 @@ export default class Home extends Component{
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    backgroundColor: '#568bc1',
+    // backgroundColor: '#568bc1',
     flex: 1
+  },
+  imageContainer: {
+    ...StyleSheet.absoluteFillObject,
+    flex: 1,
+    width: null,
+    height: null
+  },
+  gradientContainer: {
+    flex: 1
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(69,85,117,0.7)',
   },
   header: {
     justifyContent: 'center',
@@ -74,7 +95,8 @@ const styles = StyleSheet.create({
   body: {
     marginTop: 20,
     textAlign: 'center', // <-- the magic
-    fontSize: 18,
+    fontSize: 20,
+    letterSpacing: 3,
     color: 'white'
   },
   icons: {
@@ -83,11 +105,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: 45,
     marginRight: 45,
-  },
-  icon: {
-    width: '33%',
-    // alignItems: 'flex-end',
-    // paddingLeft: 30,
-    // paddingRight: 30
   }
 })

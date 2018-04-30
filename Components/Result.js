@@ -25,7 +25,7 @@ export default class Result extends Component{
         <Text style={styles.title}>{this.props.title}</Text>
 
         { this.props.summary.map((paragraph, index) => {
-          return <Text style={styles.p} key={index}>{paragraph}</Text>
+          return <Text style={styles.paragraph} key={index}>{paragraph}</Text>
         })}
         
         <TouchableHighlight  onPress={()=> Actions['home']() }>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 300
   },
-  p: {
+  paragraph: {
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 10,

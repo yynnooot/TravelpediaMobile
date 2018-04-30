@@ -6,15 +6,35 @@ import { dispatch } from 'redux';
 import { addSummary } from '../store/actions'
 
 let searchUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=';
+let exactQuery = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&origin=*&explaintext=&titles='
+
+const searched = new Set();
 
 export default function wiki(title){
 
-  let url = searchUrl + title
+  let searchWiki = searchUrl + title
+  let getWiki = exactQuery + title
   
-  axios.get(url)
+  if (searched.has(title)){
+    axios.get(getWiki)
+      .then(res => {
+        let resObj = res.data.query.pages;
+        for(key in resObj){
+          const text = resObj[key].extract;
+          const newTextArray = text.split('\n')
+
+          store.dispatch(addSummary(newTextArray))
+
+          Actions['result']()
+        }
+      })
+      .catch(err => console.error(err))
+  } else {
+    searched.add(title)
+    axios.get(searchWiki)
     .then(res => {
-      if(res.data[1].length === 1){
-        axios.get(`https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&origin=*&explaintext=&titles=${title}`)
+      if (res.data[1].length === 1){
+        axios.get(getWiki)
           .then(res => {
             let resObj = res.data.query.pages;
             for(key in resObj){
@@ -32,4 +52,5 @@ export default function wiki(title){
       }
     })
     .catch(err => console.error(err))
+  }
 }

@@ -27,7 +27,9 @@ export default class AlbumIcon extends Component{
   render(){
       return (
         <View style={styles.container}>
-          <Ionicons style={styles.icon} name="md-photos" size={32} color="white" onPress={this.pickImage.bind(this)}/>
+          <View style={styles.circle}>
+            <Ionicons style={styles.icon} name="md-photos" size={32} color="white" onPress={this.pickImage.bind(this)}/>
+          </View>  
           <Text style={styles.text}>My Album</Text>
         </View>
       )
@@ -45,7 +47,15 @@ const styles = StyleSheet.create({
     shadowOpacity: .7,
     shadowOffset: {width: 0, height: 33},
     shadowRadius: 8,
-    shadowColor: '#1A1C51',
+    shadowColor: 'pink',
     fontSize: 18
+  },
+  circle: {
+    borderRadius: 40,
+    width: 50,
+    height: 50,
+    backgroundColor: 'rgba(69,85,117,0.7)',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 })
